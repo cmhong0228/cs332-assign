@@ -1,6 +1,8 @@
 package recfun
 import common._
 
+import java.security.KeyStore.TrustedCertificateEntry
+
 object Main {
   def main(args: Array[String]) {
     println("Pascal's Triangle")
@@ -23,7 +25,19 @@ object Main {
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    @tailrec
+    def balanceLoop(openCount: int, chars: List[Char]): Boolean = {
+      if (chars.isEmpty) openCount == 0
+      else if (openCount < 0) false
+      else {
+        if (chars.head == '(') balanceLoop(openCount + 1, chars.tail)
+        else if (chars.head == ')') balanceLoop(openCount - 1, chars.tail)
+        else balanceLoop(openCount,chars.tail)
+      }
+    }
+    balanceLoop(0, chars)
+  }
 
   /**
    * Exercise 3
