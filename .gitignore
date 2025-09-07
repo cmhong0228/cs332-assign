@@ -1,2 +1,5 @@
  # JetBrains IDEs settings
 .idea/
+
+ # sbt build
+target/
