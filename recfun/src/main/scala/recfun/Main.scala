@@ -1,7 +1,7 @@
 package recfun
 import common._
 
-import java.security.KeyStore.TrustedCertificateEntry
+import scala.annotation.tailrec
 
 object Main {
   def main(args: Array[String]) {
@@ -27,7 +27,7 @@ object Main {
    */
   def balance(chars: List[Char]): Boolean = {
     @tailrec
-    def balanceLoop(openCount: int, chars: List[Char]): Boolean = {
+    def balanceLoop(openCount: Int, chars: List[Char]): Boolean = {
       if (chars.isEmpty) openCount == 0
       else if (openCount < 0) false
       else {
