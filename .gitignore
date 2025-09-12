@@ -3,3 +3,7 @@
 
  # sbt build
 target/
+
+.bsp/
+
+lib_managed/
