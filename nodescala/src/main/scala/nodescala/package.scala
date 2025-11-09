@@ -35,7 +35,7 @@ package object nodescala {
      *  The values in the list are in the same order as corresponding futures `fs`.
      *  If any of the futures `fs` fails, the resulting future also fails.
      */
-    def all[T](fs: List[Future[T]]): Future[List[T]] = Future.traverse(fs)(_)
+    def all[T](fs: List[Future[T]]): Future[List[T]] = Future.traverse(fs)(x => x)
     /** Given a list of futures `fs`, returns the future holding the value of the future from `fs` that completed first.
      *  If the first completing future in `fs` fails, then the result is failed as well.
      *
